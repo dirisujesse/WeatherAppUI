@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct TempratureHighlight: View {
+    @EnvironmentObject private var viewModel: WeatherDetailsViewModel
+    
     var body: some View {
         HStack(alignment: .top, spacing: 10) {
-            Image("sunny_cloudy")
+            Image(viewModel.current.image)
                 .resizable()
                 .scaledToFill()
                 .frame(maxWidth: 150, maxHeight: 150)
-            TempratureText(degrees: 19)
+            TempratureText(degrees: viewModel.current.formattedTemp)
         }
         .padding(.horizontal)
     }
@@ -23,6 +25,7 @@ struct TempratureHighlight: View {
 struct TempratureHighlight_Previews: PreviewProvider {
     static var previews: some View {
         TempratureHighlight()
+            .environmentObject(WeatherDetailsViewModel())
             .orangeBackgound()
     }
 }

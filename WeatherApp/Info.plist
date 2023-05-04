@@ -9,5 +9,11 @@
 		<string>Inter-Bold.otf</string>
 		<string>Inter-SemiBold.otf</string>
 	</array>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>Weather app needs access to location when in the background.</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Weather app needs access to location when in the background.</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Weather app needs access to location when open.</string>
 </dict>
 </plist>

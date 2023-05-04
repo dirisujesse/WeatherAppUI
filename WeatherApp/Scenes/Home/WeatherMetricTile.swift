@@ -23,7 +23,6 @@ struct WeatherMetricTile: View {
                 .regularFont(size: 14)
         }
         .padding(.horizontal, 11)
-        .padding(.trailing, 17)
         .padding(.vertical)
         .background(AppColors.primary30)
         .clipShape(
@@ -38,10 +37,8 @@ struct WeatherMetricTile: View {
 
 struct WeatherMetricTile_Previews: PreviewProvider {
     static var previews: some View {
-        ZStack {
-            BackgroundView()
-            WeatherMetricTile(data: WeatherMetricModel.mockData[0])
-                .padding()
-        }
+        WeatherMetricTile(data: WeatherMetricModel.mockData[0])
+            .padding()
+            .orangeBackgound()
     }
 }

@@ -8,22 +8,22 @@
 import SwiftUI
 
 struct ForecastTile: View {
-    let data: WeatherMetricModel
+    let data: WeatherDailyForcast?
     let background: Color
-    
-    init(data: WeatherMetricModel, background: Color = AppColors.primary30) {
+
+    init(data: WeatherDailyForcast?, background: Color = AppColors.primary30) {
         self.data = data
         self.background = background
     }
-    
+
     var body: some View {
         HStack(alignment: .center, spacing: 8) {
-            Text(data.title)
+            Text(data?.formattedDate ?? "")
                 .boldFont(size: 14)
             Spacer()
-            Text(data.value)
+            Text(data?.formattedTemp ?? "0")
                 .boldFont(size: 14)
-            Image(data.image)
+            Image(data?.image ?? "")
                 .resizable()
                 .scaledToFill()
                 .frame(maxWidth: 70, maxHeight: 70)
@@ -35,13 +35,5 @@ struct ForecastTile: View {
         .clipShape(
             RoundedRectangle(cornerRadius: 20)
         )
-    }
-}
-
-struct ForecastTile_Previews: PreviewProvider {
-    static var previews: some View {
-        ForecastTile(data: WeatherMetricModel.forecastData[0])
-            .padding(.horizontal)
-            .orangeBackgound()
     }
 }
