@@ -22,7 +22,7 @@ struct HomeView: View {
             }
             if viewModel.hasData {
                 ScrollView {
-                    VStack(alignment: .leading) {
+                    LazyVStack(alignment: .leading) {
                         HomeLocationHeader()
                         TempratureHighlight()
                         ForEach(viewModel.current.metricsList) {
@@ -37,7 +37,7 @@ struct HomeView: View {
                             .regularFont(size: 15)
                     }
                     ScrollView(.horizontal) {
-                        HStack(spacing: 10) {
+                        LazyHStack(spacing: 10) {
                             ForEach(viewModel.current.hourlyForecast) {
                                 TempratureForecastPill(forecast: $0)
                             }
