@@ -15,7 +15,7 @@ struct WeatherMetricTile: View {
             Image(data.image)
                 .resizable()
                 .scaledToFill()
-                .frame(maxWidth: 40, maxHeight: 40)
+                .frame(maxWidth: vw(10), maxHeight: vw(10))
             Text(data.title)
                 .regularFont(size: 14)
             Spacer()
@@ -24,7 +24,7 @@ struct WeatherMetricTile: View {
         }
         .padding(.horizontal, 11)
         .padding(.vertical)
-        .background(AppColors.primary30)
+        .background(.primary30)
         .clipShape(
             RoundedRectangle(cornerRadius: 20)
         )

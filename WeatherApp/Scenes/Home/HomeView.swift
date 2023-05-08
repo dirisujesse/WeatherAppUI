@@ -16,15 +16,15 @@ struct HomeView: View {
         ZStack {
             if viewModel.isBusy && !viewModel.hasData {
                 ProgressView()
-                    .frame(width: 50, height: 50)
+                    .frame(width: vw(10), height: vw(10))
                     .scaleEffect(viewModel.isBusy ? 1 : 0)
                     .animation(.easeInOut, value: viewModel.isBusy)
             }
             if viewModel.hasData {
                 ScrollView {
                     LazyVStack(alignment: .leading) {
-                        HomeLocationHeader()
-                        TempratureHighlight()
+                        HomeLocationHeader(city: viewModel.currentCity, country: viewModel.currentCountry, time: viewModel.currentTime)
+                        TempratureHighlight(image: viewModel.current.image, temp: viewModel.current.formattedTemp)
                         ForEach(viewModel.current.metricsList) {
                             WeatherMetricTile(data: $0)
                         }
@@ -64,7 +64,7 @@ struct HomeView: View {
             }
         }
         .toolbar {
-            if (!viewModel.isBusy && !viewModel.hasData) {
+            if !viewModel.isBusy && !viewModel.hasData {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
                         Task {
@@ -76,7 +76,6 @@ struct HomeView: View {
                                 .regularFont(size: 15)
                             Text("Retry")
                                 .regularFont(size: 15)
-                            
                         }
                     }
                 }
@@ -87,7 +86,7 @@ struct HomeView: View {
                 await viewModel.getCurrentLocationWeather(force: true)
             }
         }
-        .toolbarBackground(AppColors.orange, for: .navigationBar)
+        .toolbarBackground(.appOrange, for: .navigationBar)
         .orangeBackgound()
         .task {
             await viewModel.getCurrentLocationWeather()
@@ -103,4 +102,3 @@ struct HomeView_Previews: PreviewProvider {
         }
     }
 }
-

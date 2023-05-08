@@ -23,7 +23,6 @@ struct TempratureText: View {
                             size)
             Text("°C")
                 .regularFont(size: 14)
-//            .offset(x: 15, y: 10)
         }
     }
 }
