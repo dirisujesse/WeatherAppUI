@@ -14,6 +14,7 @@ struct ContentView: View {
                 BackgroundView()
                 HomeView()
             }
+            .preferredColorScheme(.light)
         }
     }
 }

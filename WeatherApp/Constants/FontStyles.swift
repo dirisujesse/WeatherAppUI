@@ -60,19 +60,19 @@ struct RegularFontStyle: ViewModifier {
 
 
 extension View {
-    func regularFont(size: CGFloat, color: Color = AppColors.text) -> some View {
+    func regularFont(size: CGFloat, color: Color = .text) -> some View {
         self.modifier(RegularFontStyle(size: size, color: color))
     }
     
-    func semiBoldFont(size: CGFloat, color: Color = AppColors.text) -> some View {
+    func semiBoldFont(size: CGFloat, color: Color = .text) -> some View {
         self.modifier(SemiBoldFontStyle(size: size, color: color))
     }
     
-    func mediumFont(size: CGFloat, color: Color = AppColors.text) -> some View {
+    func mediumFont(size: CGFloat, color: Color = .text) -> some View {
         self.modifier(MediumFontStyle(size: size, color: color))
     }
     
-    func boldFont(size: CGFloat, color: Color = AppColors.text) -> some View {
+    func boldFont(size: CGFloat, color: Color = .text) -> some View {
         self.modifier(BoldFontStyle(size: size, color: color))
     }
 }

@@ -13,15 +13,15 @@ struct TempratureForecastPill: View {
     var body: some View {
         VStack {
             Text(forecast.formattedTime)
-                .regularFont(size: 14, color: AppColors.secondaryText)
+                .regularFont(size: 14, color: .secondaryText)
             Image(forecast.image)
                 .resizable()
                 .scaledToFit()
-                .frame(width: 40, height: 40)
+                .frame(maxWidth: vw(10), maxHeight: vw(10))
             InlineTempratureText(degrees: forecast.formattedTemp)
         }
         .padding()
-        .background(AppColors.primary30)
+        .background(.primary30)
         .clipShape(RoundedRectangle(cornerRadius: 50))
     }
 }

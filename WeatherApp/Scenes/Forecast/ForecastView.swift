@@ -39,8 +39,8 @@ struct ForecastView: View {
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
-        .foregroundColor(AppColors.text)
-        .toolbarBackground(AppColors.orange, for: .navigationBar)
+        .foregroundColor(.text)
+        .toolbarBackground(.appOrange, for: .navigationBar)
         .orangeBackgound()
     }
 }
@@ -53,5 +53,6 @@ struct ForecastView_Previews: PreviewProvider {
                 ForecastView()
             }
         }
+        .environmentObject(WeatherDetailsViewModel())
     }
 }

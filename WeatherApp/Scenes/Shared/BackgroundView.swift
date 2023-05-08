@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BackgroundView: View {
     var body: some View {
-        LinearGradient(stops: [.init(color: AppColors.orange, location: 0), .init(color: AppColors.burntOrange, location: 1)], startPoint: .topLeading, endPoint: .bottomTrailing)
+        LinearGradient(stops: [.init(color: .appOrange, location: 0), .init(color: .burntOrange, location: 1)], startPoint: .topLeading, endPoint: .bottomTrailing)
             .edgesIgnoringSafeArea(.all)
     }
 }
