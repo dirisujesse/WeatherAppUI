@@ -8,15 +8,24 @@
 import SwiftUI
 
 struct TempratureHighlight: View {
-    @EnvironmentObject private var viewModel: WeatherDetailsViewModel
+    struct TemperatureHighlightData {
+        let image: String
+        let temp: String
+    }
+    
+    let data: TemperatureHighlightData
+    
+    init(image: String, temp: String) {
+        self.data = TemperatureHighlightData(image: image, temp: temp)
+    }
     
     var body: some View {
-        HStack(alignment: .top, spacing: 10) {
-            Image(viewModel.current.image)
+        HStack(alignment: .center) {
+            Image(data.image)
                 .resizable()
-                .scaledToFill()
-                .frame(maxWidth: 150, maxHeight: 150)
-            TempratureText(degrees: viewModel.current.formattedTemp)
+                .scaledToFit()
+                .frame(maxWidth: vw(40), maxHeight: vw(40))
+            TempratureText(degrees: data.temp)
         }
         .padding(.horizontal)
     }
@@ -24,8 +33,7 @@ struct TempratureHighlight: View {
 
 struct TempratureHighlight_Previews: PreviewProvider {
     static var previews: some View {
-        TempratureHighlight()
-            .environmentObject(WeatherDetailsViewModel())
+        TempratureHighlight(image: "sunny", temp: "19")
             .orangeBackgound()
     }
 }

@@ -12,14 +12,14 @@ struct ForecastBanner: View {
     
     var body: some View {
         VStack(alignment: .center) {
-            ForecastTile(data: viewModel.current.dailyForecast.first, background: AppColors.transparent)
+            ForecastTile(data: viewModel.current.dailyForecast.first, background: .transparent)
             HStack(alignment: .center, spacing: 30) {
                 ForEach(viewModel.current.metricsList) { data in
                     ForecastMetricColumn(data: data)
                 }
             }
         }
-        .background(AppColors.primary60)
+        .background(.primary60)
         .clipShape(RoundedRectangle(cornerRadius: 20))
         .padding()
     }
@@ -28,6 +28,7 @@ struct ForecastBanner: View {
 struct ForecastBanner_Previews: PreviewProvider {
     static var previews: some View {
         ForecastBanner()
+            .environmentObject(WeatherDetailsViewModel())
             .orangeBackgound()
     }
 }
